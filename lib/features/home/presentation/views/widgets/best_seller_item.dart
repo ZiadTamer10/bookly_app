@@ -14,7 +14,7 @@ class BestSellerItem extends StatelessWidget {
             aspectRatio: 2.5 / 4,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(8),
                 color: Colors.red,
                 image: DecorationImage(
                   fit: BoxFit.fill,
