@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedItem extends StatelessWidget {
@@ -7,18 +8,14 @@ class FeaturedItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return ClipRRect(
+      borderRadius: BorderRadiusGeometry.circular(16),
       child: AspectRatio(
         aspectRatio: 2.6 / 4,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Colors.red,
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: NetworkImage(imageUrl),
-            ),
-          ),
+        child: CachedNetworkImage(
+          fit: BoxFit.fill,
+          errorWidget: (context, url, error) => Icon(Icons.error),
+          imageUrl: imageUrl,
         ),
       ),
     );
