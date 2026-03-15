@@ -1,8 +1,9 @@
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedItem extends StatelessWidget {
-  const FeaturedItem({super.key});
+  const FeaturedItem({super.key, required this.imageUrl});
+
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class FeaturedItem extends StatelessWidget {
             color: Colors.red,
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage(AssetsData.testImage),
+              image: NetworkImage(imageUrl),
             ),
           ),
         ),
