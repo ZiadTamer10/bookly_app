@@ -10,7 +10,9 @@ class SearchRepoImpl implements SearchRepo {
 
   SearchRepoImpl(this.apiServices);
   @override
-  Future<Either<Failures, List<BookModel>>> fetchSearchBooks() async {
+  Future<Either<Failures, List<BookModel>>> fetchSearchBooks({
+    required String book,
+  }) async {
     try {
       var data = await apiServices.get(
         endPoint:
