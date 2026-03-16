@@ -17,12 +17,12 @@ class NewestBooksItem extends StatelessWidget {
         GoRouter.of(context).push(AppRouter.kBookDetailsView);
       },
       child: SizedBox(
-        height: 130,
+        height: 135,
         child: Row(
           spacing: 30,
           children: [
             FeaturedItem(
-              imageUrl: bookModel.volumeInfo!.imageLinks!.smallThumbnail!,
+              imageUrl: bookModel.volumeInfo!.imageLinks?.smallThumbnail ?? '',
             ),
             Expanded(
               child: Column(
@@ -41,7 +41,7 @@ class NewestBooksItem extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    bookModel.volumeInfo!.authors![0],
+                    bookModel.volumeInfo?.authors?[0] ?? '',
                     style: Styles.textStyle14,
                   ),
                   Row(
