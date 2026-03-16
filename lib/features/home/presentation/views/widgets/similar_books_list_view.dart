@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/errors/failures.dart';
 import 'package:bookly_app/features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_error_widget.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_loading_indicator.dart';
@@ -18,11 +17,18 @@ class SimilarBooksListView extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .15,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
+              itemCount: state.books.length,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(right: 5),
                   child: FeaturedItem(
-                    imageUrl: 'https://pbs.twimg.com/media/GQ7yv4_XwAAsBCY.jpg',
+                    imageUrl:
+                        state
+                            .books[index]
+                            .volumeInfo
+                            ?.imageLinks
+                            ?.smallThumbnail ??
+                        '',
                   ),
                 );
               },
