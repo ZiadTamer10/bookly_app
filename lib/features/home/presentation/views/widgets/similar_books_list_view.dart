@@ -23,11 +23,7 @@ class SimilarBooksListView extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 5),
                   child: FeaturedItem(
                     imageUrl:
-                        state
-                            .books[index]
-                            .volumeInfo
-                            ?.imageLinks
-                            ?.smallThumbnail ??
+                        state.books[index].volumeInfo?.imageLinks?.thumbnail ??
                         '',
                   ),
                 );

@@ -4,22 +4,29 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({super.key});
+  CustomSearchTextField({super.key});
+
+  final TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       onSubmitted: (value) {
-        (value) {
-          context.read<SearchBooksCubit>().fetchSearchBooks(book: value);
-        };
+        BlocProvider.of<SearchBooksCubit>(
+          context,
+        ).fetchSearchBooks(book: value);
       },
+      controller: searchController,
       decoration: InputDecoration(
         enabledBorder: buildOutlineInputBorder(),
         focusedBorder: buildOutlineInputBorder(),
         hintText: 'Search',
         suffixIcon: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            BlocProvider.of<SearchBooksCubit>(
+              context,
+            ).fetchSearchBooks(book: searchController.text);
+          },
           icon: Opacity(
             opacity: 0.8,
             child: Icon(FontAwesomeIcons.magnifyingGlass, size: 22),

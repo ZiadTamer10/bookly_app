@@ -22,7 +22,7 @@ class NewestBooksItem extends StatelessWidget {
           spacing: 30,
           children: [
             FeaturedItem(
-              imageUrl: bookModel.volumeInfo!.imageLinks?.smallThumbnail ?? '',
+              imageUrl: bookModel.volumeInfo!.imageLinks?.thumbnail ?? '',
             ),
             Expanded(
               child: Column(
